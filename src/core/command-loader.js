@@ -22,11 +22,23 @@ export async function loadCommands() {
       department.id
     );
 
-    const files = (await readdir(departmentDirectory))
+    let files;
+
+    try {
+      files = await readdir(departmentDirectory);
+    } catch (error) {
+      if (error.code === 'ENOENT') {
+        continue;
+      }
+
+      throw error;
+    }
+
+    const javascriptFiles = files
       .filter((file) => file.endsWith('.js'))
       .sort();
 
-    for (const file of files) {
+    for (const file of javascriptFiles) {
       const filePath = path.join(departmentDirectory, file);
       const module = await import(pathToFileURL(filePath).href);
 
