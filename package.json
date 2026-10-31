@@ -1,0 +1,20 @@
+
+{
+  "name": "munaiszn-x",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MUNAISZN X - Premium modular WhatsApp automation platform with 500 distinct commands across 20 departments",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "7.0.0-rc14"
+  }
+}
